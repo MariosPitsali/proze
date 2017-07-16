@@ -28,6 +28,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+if DEBUG and os.getenv('SL_PUBLIC_URL'):
+    ALLOWED_HOSTS.append(os.getenv('SL_PUBLIC_URL'))
+
 
 # Application definition
 
@@ -38,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'thesaurus',
 ]
 
 MIDDLEWARE = [
